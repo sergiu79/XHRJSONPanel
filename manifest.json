@@ -1,0 +1,12 @@
+{
+  "name": "XHR JSON Panel",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Creates XHR tab extension",
+  "devtools_page": "devtools.html",
+  "permissions": [
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ]
+}

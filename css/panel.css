@@ -1,0 +1,71 @@
+body,ul {
+	margin:0;
+	padding:0;
+}
+.expanded{
+	background: lightgray url(../images/minus-icon.png)  no-repeat 0 4px;
+	width:16px;
+	height:16px;
+	display: inline-block;
+}
+.collapsed{
+	background: lightgray url(../images/plus-icon.png)  no-repeat 0 4px;
+	width:16px;
+	height:16px;
+	display: inline-block;
+}
+.url {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: black;
+}
+.status {
+	font-family: Courier, Arial, monospace;
+	font-size: 12px;
+	color: darkgray;
+	vertical-align: center;
+}
+ul {
+    list-style-type: none;
+}
+.url, .icon{
+	cursor: pointer;
+}
+.url:hover{
+	text-decoration: underline;
+}
+.hide {
+	display: none;
+}
+.red {
+	color: red;
+}
+.line, .toolbar {
+	background-color: lightgray;
+	border-bottom: 1px darkgray dotted; 
+	padding: 3px 0;
+}
+
+.toolbar {
+	padding-left: 10px;
+}
+.response {
+	width: 50%;
+	box-sizing: border-box;
+	float: left;
+	border-right: 1px darkgray solid;
+	padding: 2px;
+}
+.request {
+	width: 50%;
+	float: right;
+	box-sizing: border-box;
+	border-left: 1px darkgray solid;
+	padding: 2px;
+	margin-left: -1px;
+	
+}
+.clear {
+	clear: both;
+}
