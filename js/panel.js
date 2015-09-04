@@ -36,25 +36,24 @@ $('#clear').off().on('click', clearView);
 $('#expandall').off().on('click', expandAll);
 $('#collapseall').off().on('click', collapseAll);
 chrome.devtools.network.onRequestFinished.addListener(function (netevent) {
-	console.log(netevent);
 	var line;
-	if (netevent.response.content.mimeType.indexOf('application/json')>-1) {
+	if (netevent.response.content.mimeType.indexOf('application/json')>-1 || netevent.response.status !== 200) {
 		lineIndex++;
-		var cssStatusClass = netevent.response.status !==200 ? 'red': ''; 
+		var cssStatusClass = netevent.response.status !== 200 ? 'red': '';
 		line = '<li id="k' + lineIndex + '" class="' + cssStatusClass + '">';
 		line += '	<div class="line">';
-		line += '		<span class="icon collapsed"></span><span class="url">' + netevent.request.method + '  '  + netevent.request.url + '</span> <span class="status">' +netevent.response.status + ' ' + netevent.response.statusText + '</span>'; 
+		line += '		<span class="icon collapsed"></span><span class="url '+ cssStatusClass + '">' + netevent.request.method + '  '  + netevent.request.url + '</span> <span class="status '+ cssStatusClass + '">' +netevent.response.status + ' ' + netevent.response.statusText + '</span>'; 
 		line += '	</div>';
 		line += '	<div class="json_content hide">';
 		line += '		<div class="response"></div>';
-		line += '		<div class="request"></div>';
+		line += '		<div class="request"> GET Parameters: <p class="get_parameters"></p> </div>';
 		line += '		<div class="clear"></div>';
 		line += '	</div>';
 		line += '</li>';
 		$('#loglist').append(line);
 		var request = netevent.request.queryString;
 		
-		$('#k'+lineIndex).find('.request').JSONView(extractParameters(request));
+		$('#k'+lineIndex).find('.get_parameters').JSONView(extractParameters(request));
 		if (netevent.request.postData && netevent.request.postData.mimeType.indexOf('application/json')>-1){
 			var postContent = JSON.parse(netevent.request.postData.text);
 			$('#k'+lineIndex).find('.request').append('<div>POST Payload:</div><div class="request_payload"></div>');
