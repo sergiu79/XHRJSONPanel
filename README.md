@@ -9,7 +9,8 @@ This extension is inspired by Firebug console and helps me when I need to quick 
 
 
 Updates
-
+v0.0.3
+ - presented only failure requests (status code > 400 && status code <600)
 v0.0.2
  - The top toolbar is set to fixed position (always visible)
  - The failiure requests (404, 503, etc)  are presented with red color
