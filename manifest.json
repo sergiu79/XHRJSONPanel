@@ -1,6 +1,6 @@
 {
   "name": "XHR JSON Panel",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "manifest_version": 2,
   "description": "This extension add to Chrome Dev Tools a new XHR JSON Panel that presents the most important data sent/received in an Ajax process.",
   "devtools_page": "devtools.html",

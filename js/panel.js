@@ -37,9 +37,10 @@ $('#expandall').off().on('click', expandAll);
 $('#collapseall').off().on('click', collapseAll);
 chrome.devtools.network.onRequestFinished.addListener(function (netevent) {
 	var line;
-	if (netevent.response.content.mimeType.indexOf('application/json')>-1 || netevent.response.status !== 200) {
+	var isErrorStatus = (netevent.response.status >= 400 && netevent.response.status < 600);
+	if (netevent.response.content.mimeType.indexOf('application/json')>-1 || isErrorStatus ) {
 		lineIndex++;
-		var cssStatusClass = netevent.response.status !== 200 ? 'red': '';
+		var cssStatusClass = isErrorStatus ? 'red': '';
 		line = '<li id="k' + lineIndex + '" class="' + cssStatusClass + '">';
 		line += '	<div class="line">';
 		line += '		<span class="icon collapsed"></span><span class="url '+ cssStatusClass + '">' + netevent.request.method + '  '  + netevent.request.url + '</span> <span class="status '+ cssStatusClass + '">' +netevent.response.status + ' ' + netevent.response.statusText + '</span>'; 
