@@ -64,5 +64,12 @@ chrome.devtools.network.onRequestFinished.addListener(function (netevent) {
 			var parsed = JSON.parse(body); 
 			$('#k'+this.lineIndex).find('.response').JSONView(parsed);
 		}, {lineIndex:lineIndex}));
+		var list = $('body');
+		list.animate({scrollTop : list.prop('scrollHeight')}, '500');
+	}
+});
+chrome.devtools.network.onNavigated.addListener(function (url){
+	if (!$('#preserve_log').is(':checked')){
+		clearView();
 	}
 });

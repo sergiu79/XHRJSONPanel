@@ -9,6 +9,9 @@ This extension is inspired by Firebug console and helps me when I need to quick 
 
 
 Updates
+v0.0.4
+ - added preserve logs
+
 v0.0.3
  - presented only failure requests (status code > 400 && status code <600)
 
