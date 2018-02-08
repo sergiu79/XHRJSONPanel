@@ -90,3 +90,6 @@ ul {
 #loglist {
 	margin-top:27px;
 }
+#exclude {
+	min-width: 150px;
+}

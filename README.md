@@ -9,6 +9,9 @@ This extension is inspired by Firebug console and helps me when I need to quick 
 
 
 Updates
+v0.0.5
+- added exclude filter
+
 v0.0.4
  - added preserve logs
 
